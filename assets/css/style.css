@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
+@font-face {
+  font-family: 'Ocarina of Time';
+  src: url('/assets/fonts/OcarinaOfTime.otf') format('opentype');
+  font-display: swap;
+}
+
 :root {
   --bg: #100a15;
   --bg-panel: #0b070e;
@@ -14,6 +20,7 @@
   --font-serif: 'Bodoni Moda', serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-hylian: 'Ocarina of Time', var(--font-sans);
 }
 
 * { box-sizing: border-box; }
@@ -140,3 +147,11 @@ a:hover { color: var(--gold-light); }
   color: rgba(244, 239, 228, .3);
 }
 .site-footer__links a:hover { color: var(--gold-light); }
+
+/* Hylian script — vowels/n on plain letters, consonant+vowel syllables on
+   accented characters (see notes on the mora->character mapping) */
+.font-hylian {
+  font-family: var(--font-hylian);
+  letter-spacing: .04em;
+  word-spacing: .3em;
+}
