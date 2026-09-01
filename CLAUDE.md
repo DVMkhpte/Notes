@@ -26,6 +26,27 @@ Remplace intégralement l'ancien setup Quartz + portail PHP. Un seul système qu
 - Identité cyber/tech en base (mono pour le chrome UI, dense, feel outil) + accents inspirés d'un personnage de marchand énigmatique : palette violet profond / aubergine + or/laiton vieilli, jamais vert-sur-noir façon terminal cliché. Ton un peu cryptique dans les micro-textes. Motif du masque utilisé avec parcimonie (favicon, loader), jamais en thème littéral.
 - Prototypage en cours dans Claude Design — demander l'état actuel du brief si besoin d'ajuster.
 
+## Police hylienne (`assets/fonts/OcarinaOfTime.otf`)
+- Utilisée pour afficher du texte en écriture hylienne (Ocarina of Time). C'est un syllabaire (comme les kana japonais), pas un alphabet : chaque caractère de la police correspond à une syllabe entière, pas à une lettre.
+- Les 5 voyelles + `n` sont sur leurs touches normales : `a`, `i`, `u`, `e`, `o`, `n`.
+- Les 40 syllabes consonne+voyelle sont sur des caractères Latin-1 étendus (accents/symboles), sans rapport avec leur apparence sur un clavier standard — table de correspondance déterminée par comparaison visuelle avec le tableau de référence du syllabaire (voir capture fournie par l'utilisateur) :
+
+  | | a/ø | i | u | e | o |
+  |---|---|---|---|---|---|
+  | (voyelle seule) | a | i | u | e | o |
+  | k | ¡ | ¢ | £ | ¤ | ¥ |
+  | s | ¦ | § (shi) | ¨ | © | ª |
+  | t | « | ¬ (chi) | É (tsu) | ® | ¯ |
+  | n | ° | ± | ² | ³ | ´ |
+  | h | µ | ¶ | · (fu) | ¸ | ¹ |
+  | m | º | » | ¼ | ½ | ¾ |
+  | y | Ä | — | Å | — | Æ |
+  | r | ¿ | À | Á | Â | Ã |
+  | w | Ç | — | — | — | È |
+
+- Exemple : "taimu no okarina" (nom japonais du jeu) → `«i¼ ´ o¡À°` (ta-i-mu / no / o-ka-ri-na).
+- Cette police est incomplète sur les lettres `a-z` normales (la plupart sont juste des capitales latines recyclées, pas de vrais glyphes) — ne jamais écrire du hylien en tapant du romaji brut dans ces lettres, toujours passer par la table ci-dessus.
+
 ## Phasage
 1. **Front d'abord** : pages statiques HTML/CSS/JS — home, liste writeups, détail writeup (code + TOC), login, mockup admin (dépôt de writeup, non fonctionnel à ce stade)
 2. **Backend ensuite** : routes Node, parsing markdown, auth, SQLite
