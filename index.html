@@ -5,20 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>khpte</title>
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=8">
 </head>
-<body data-page="writeups">
+<body data-page="home">
 
-<div data-include="/assets/includes/header.html"></div>
+<script>
+  // Avoids a flash of the gate on reload when the "Enter" session cookie
+  // already marks this visitor as past it (see assets/js/gate.js).
+  if (document.cookie.split('; ').some((c) => c.startsWith('Enter='))) {
+    document.write('<style>#gate,#door{display:none}#home{opacity:1}</style>');
+  }
+</script>
 
-<main style="padding: 60px 40px; min-height: 50vh;">
-  <p class="font-hylian" style="font-size: 28px; color: var(--gold-light);">
-    «i¼ ´ o¡À°
-  </p>
-</main>
+<div id="veil" aria-hidden="true"></div>
 
-<div data-include="/assets/includes/footer.html"></div>
+<section id="gate" class="gate">
+  <div class="gate__glyphs font-hylian" aria-hidden="true">
+    <p>¡É§¡&nbsp;&nbsp;¾À°&nbsp;&nbsp;ÄÇ¯</p>
+    <p>µ·¹&nbsp;&nbsp;°¡&nbsp;&nbsp;ÀÂ°</p>
+  </div>
+  <form id="gate-form" class="gate__form" novalidate>
+    <label for="gate-answer" class="sr-only">Enter the word</label>
+    <div class="gate__row">
+      <input type="text" id="gate-answer" name="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="…">
+      <button type="submit">Enter</button>
+    </div>
+    <p id="gate-error" class="gate__error" role="alert" hidden>That is not the right word.</p>
+  </form>
+</section>
 
-<script src="/assets/js/include.js"></script>
+<section id="door" class="door" hidden>
+  <div class="door__path" aria-hidden="true">
+    <div class="door__path-plane"></div>
+  </div>
+  <button type="button" id="door-trigger" class="door__square" aria-label="Enter the shop"></button>
+</section>
+
+<div id="home" class="home" hidden>
+  <div data-include="/assets/includes/header.html"></div>
+
+  <main style="padding: 60px 40px; min-height: 50vh;">
+    <p class="font-hylian" style="font-size: 28px; color: var(--gold-light);">
+      «i¼ ´ o¡À°
+    </p>
+  </main>
+
+  <div data-include="/assets/includes/footer.html"></div>
+</div>
+
+<script src="/assets/js/include.js?v=8"></script>
+<script src="/assets/js/gate.js?v=8"></script>
 </body>
 </html>
